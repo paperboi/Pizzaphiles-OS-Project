@@ -6,3 +6,5 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 * Install WxPython modules using ```sudo apt install python-wxgtk3.0``` 
 * Run the program using ```python Pizzaphiles.py```
+
+**Note:** This program is compatible with python version < 3.0
