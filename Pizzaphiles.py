@@ -7,7 +7,6 @@ import wx
 from wx.lib.wordwrap import wordwrap
 # For system-specific functions
 import sys
-import pdb
 
 # Modules needed for Semaphore Implementation
 # -------------------------------------------
@@ -94,7 +93,6 @@ class MainFrame(wx.Frame):
 
     def __init__(self):
         """Constructor"""
-        # pdb.set_trace()
         FrameStyle = wx.DEFAULT_FRAME_STYLE & ~ (wx.RESIZE_BORDER | wx.RESIZE_BOX | wx.MAXIMIZE_BOX)
         wx.Frame.__init__(self, None, size=(669,341), title="Pizzaphiles!", style=FrameStyle)
         panel1 = MainPanel(self)
