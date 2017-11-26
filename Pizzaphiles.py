@@ -66,7 +66,7 @@ class MainPanel(wx.Panel):
     	info.name = "Pizzaphiles!"
     	info.Version = "0.0.1 Beta"
     	info.Description = wordwrap("This is an application that simulates the solution of the Pizza Eating Problem with semaphores using wxPython!", 350, wx.ClientDC(self))
-        info.WebSite = ("https://docs.google.com/document/d/1r2ypHw_ca-hdEnm0XNoshhmdQN6UY1ENbKJQQ3uxYWs/edit#heading=h.8aqpxrfsx4k1", "The Problem Statement")
+        info.WebSite = ("https://drive.google.com/a/iiitdm.ac.in/file/d/1TAnRrPw0PR7OTdWc-TliTEXqLPbA6YoF/view?usp=sharing", "The Problem Statement")
         info.Developers = ["Jeffrey Jacob (CED15I036)", "Mukundhan Kumar (CED15I005)", "Aditya Prakash (CED15I025)"]
         wx.AboutBox(info)
 
@@ -89,7 +89,6 @@ class MainPanel(wx.Panel):
 
 
 class MainFrame(wx.Frame):
-    # studentIcon = None
     StudentIconList = [ ]
     pizzaIconList = [ ]
 
@@ -101,28 +100,21 @@ class MainFrame(wx.Frame):
         panel1 = MainPanel(self)
 
         for i in xrange(0,numStudents):
-            self.studentIcon = wx.StaticBitmap(panel1, wx.ID_ANY, wx.Bitmap('Scott Pilgrim.png', wx.BITMAP_TYPE_ANY), pos=wx.Point(90*i,40))
+            self.studentIcon = wx.StaticBitmap(panel1, wx.ID_ANY, wx.Bitmap('student.png', wx.BITMAP_TYPE_ANY), pos=wx.Point(90*i,40))
             # self.studentIcon.Hide()
             self.studentIcon.Show()            
             self.StudentIconList.append(self.studentIcon)
     
         for i in xrange(0,Slices):
-            self.pizzaIcon = wx.StaticBitmap(panel1, wx.ID_ANY, wx.Bitmap('8bit-pizza.png', wx.BITMAP_TYPE_ANY), pos=wx.Point(70*i,120))
+            self.pizzaIcon = wx.StaticBitmap(panel1, wx.ID_ANY, wx.Bitmap('pizza.png', wx.BITMAP_TYPE_ANY), pos=wx.Point(70*i,120))
             # self.pizzaIcon.Hide()
             self.pizzaIcon.Show()
             self.pizzaIconList.append(self.pizzaIcon)
 
-        self.deliveryguyIcon = wx.StaticBitmap(panel1, wx.ID_ANY, wx.Bitmap('deliveryguy8bit.png', wx.BITMAP_TYPE_ANY), pos=wx.Point(480,170))
+        self.deliveryguyIcon = wx.StaticBitmap(panel1, wx.ID_ANY, wx.Bitmap('deliveryguy.png', wx.BITMAP_TYPE_ANY), pos=wx.Point(480,170))
         # self.deliveryguyIcon.Hide()
         self.deliveryguyIcon.Show()
-
-        # print self.StudentIconList
-        # self.ShowImage()
-
-
-        # self.statusbar = self.CreateStatusBar(1)
-        # self.statusbar.SetStatusText("Loading...")
-        self.SetIcon(wx.Icon("pizza16x16.png"))     
+        self.SetIcon(wx.Icon("pizza_icon.png"))     
         self.Center()
         self.Show()
 
@@ -144,12 +136,6 @@ class MainFrame(wx.Frame):
 
         for i in xrange(len(thread_list)):
             thread_list[i].start()
-            
-        # students_thread=threading.Thread(target = self.deliveryguy, args = (stud_id[i+1],))
-        # students_thread.start()
-
-        # self.studentIcon.Show()
-
         for i in xrange(numStudents): 
             students_thread.join()
         return None
@@ -166,7 +152,6 @@ class MainFrame(wx.Frame):
                 SliceCount = 8
             SliceCount = SliceCount-1
             x = x+1
-            # pdb.set_trace()
             sem_print.acquire()
 
 
